@@ -10,12 +10,12 @@ class BookBase(BaseModel):
 
 
 class BookCreate(BookBase):
-    pass
+    author_id: int
 
 
 class Book(BookBase):
     id: int
-    author_id: int
+    # author_id: int
 
     class Config:
         orm_mode = True
