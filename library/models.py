@@ -1,7 +1,7 @@
 from sqlalchemy import Column, Integer, String, Date, ForeignKey
 from sqlalchemy.orm import relationship
 
-from database import Base
+from library.database import Base
 
 
 class Book(Base):
