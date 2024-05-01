@@ -21,7 +21,7 @@ def get_books(db: Session):
 
 
 def create_book(db: Session, book: schemas.BookCreate):
-    db_book = models.Author(**book.dict(), author_id=book.author_id)
+    db_book = models.Book(**book.dict())
     db.add(db_book)
     db.commit()
     db.refresh(db_book)
