@@ -7,6 +7,10 @@ def get_authors(db: Session):
     return db.query(models.Author).all()
 
 
+def get_author_by_id(db: Session, author_id: int):
+    return db.query(models.Author).filter(models.Author.id == author_id).first()
+
+
 def create_author(db: Session, author: schemas.AuthorCreate):
     db_author = models.Author(**author.dict())
     db.add(db_author)
