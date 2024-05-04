@@ -3,8 +3,8 @@ from sqlalchemy.orm import Session
 from library import models, schemas
 
 
-def get_authors(db: Session):
-    return db.query(models.Author).all()
+def get_authors(db: Session, skip: int = 0, limit: int = 2):
+    return db.query(models.Author).offset(skip).limit(limit).all()
 
 
 def get_author_by_id(db: Session, author_id: int):
