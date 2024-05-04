@@ -26,13 +26,6 @@ class BookWithId(BookBase):
     id: int
 
 
-# class BookWithAuthor(Book):
-#     author: "AuthorWithId"
-#
-#     class Config:
-#         orm_mode = True
-
-
 class AuthorBase(BaseModel):
     name: str
     bio: str | None = None
