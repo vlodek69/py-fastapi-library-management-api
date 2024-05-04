@@ -18,7 +18,7 @@ def get_db():
 
 @app.get("/")
 def read_root():
-    return {"Hello": "World"}
+    return {"Hello": "/authors"}
 
 
 @app.get("/authors/", response_model=list[schemas.Author])
@@ -43,7 +43,7 @@ def create_author(author: schemas.AuthorCreate, db: Session = Depends(get_db)):
 def read_books(
     skip: int = 0,
     limit: int = 2,
-    author_id: int = None,
+    author_id: int | None = None,
     db: Session = Depends(get_db),
 ):
     return crud.get_books(db=db, skip=skip, limit=limit, author_id=author_id)

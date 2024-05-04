@@ -23,7 +23,7 @@ def create_author(db: Session, author: schemas.AuthorCreate):
 
 
 def get_books(
-    db: Session, skip: int = 0, limit: int = 2, author_id: int = None
+    db: Session, skip: int = 0, limit: int = 2, author_id: int | None = None
 ):
     queryset = db.query(models.Book)
 
