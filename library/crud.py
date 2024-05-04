@@ -20,8 +20,8 @@ def create_author(db: Session, author: schemas.AuthorCreate):
     return db_author
 
 
-def get_books(db: Session):
-    return db.query(models.Book).all()
+def get_books(db: Session, skip: int = 0, limit: int = 2):
+    return db.query(models.Book).offset(skip).limit(limit).all()
 
 
 def create_book(db: Session, book: schemas.BookCreate):

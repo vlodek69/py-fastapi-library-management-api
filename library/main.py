@@ -50,8 +50,12 @@ def create_author(
 
 
 @app.get("/books/", response_model=list[schemas.Book])
-def read_books(db: Session = Depends(get_db)):
-    return crud.get_books(db=db)
+def read_books(
+    skip: int = 0,
+    limit: int = 2,
+    db: Session = Depends(get_db)
+):
+    return crud.get_books(db=db, skip=skip, limit=limit)
 
 
 @app.post("/books/", response_model=schemas.Book)
